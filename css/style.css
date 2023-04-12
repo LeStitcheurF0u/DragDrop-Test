@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.board {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-auto-rows: 100%;
+    grid-auto-columns: 100%;
+    gap: 0;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.square:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.chess-piece {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 100px;
+}
+
+.highlight {
+    background: rgba(255,255,255, .4);
+}
+
+.target {
+    border: 2px solid #ff0987;
+}
+
+#box {
+    display: none;
+    position: absolute;
+    -webkit-user-drag: element;
+    left: 100px;
+    top: 200px;
+    width: 200px;
+    height: 200px;
+    backdrop-filter: blur(5px); background-color: rgba(255, 255, 255, 1); border-radius: 26px; box-shadow: 35px 35px 68px 0px rgba(208, 2, 27, 0.5), inset -8px -8px 16px 0px rgba(208, 2, 27, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
+    cursor: grab;
+}
+
+#box:drag{
+    cursor: grabbing;
+}
+
+#box.visible {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#box.visible .close {
+    font-size: 50px;
+    font-weight: 600;
+    color: red;
+
+}
+
